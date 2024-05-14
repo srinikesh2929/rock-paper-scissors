@@ -33,7 +33,7 @@ function win(userChoice, computerChoice) {
     computerScore_span.innerHTML = computerScore;
     result_p.innerHTML = returnSentence(userChoice, 'beats', computerChoice)
     document.getElementById(userChoice).classList.add('green-glow');
-    setTimeout(function () {userChoice_div.classList.remove('green-glow')}, 300);
+    setTimeout(()=> userChoice_div.classList.remove('green-glow'), 300);
     resultUlt_p.innerHTML = 'You WIN🔥';
 }
 
@@ -44,14 +44,14 @@ function lose(userChoice, computerChoice) {
     computerScore_span.innerHTML = computerScore;
     result_p.innerHTML = returnSentence(userChoice,'loses to',computerChoice)
     document.getElementById(userChoice).classList.add('red-glow')
-    setTimeout(function () {userChoice_div.classList.remove('red-glow')}, 300);
+    setTimeout(() =>userChoice_div.classList.remove('red-glow'), 300);
     resultUlt_p.innerHTML = 'You Lose😔';
 }
 function draw(userChoice,computerChoice) {
     const userChoice_div=document.getElementById(userChoice)
     result_p.innerHTML = returnSentence(userChoice,'draws',computerChoice)
     document.getElementById(userChoice).classList.add('grey-glow');
-    setTimeout(function () {userChoice_div.classList.remove('grey-glow')}, 300);
+    setTimeout( () =>userChoice_div.classList.remove('grey-glow'), 300);
     resultUlt_p.innerHTML = 'It\'s a draw🤝';
 }
 function game(userChoice) {
@@ -78,14 +78,8 @@ function game(userChoice) {
 }
 
 function main() {
-    rock_div.addEventListener('click', function () {
-        game('r');
-    });
-    paper_div.addEventListener('click', function () {
-        game('p');
-    });
-    scissors_div.addEventListener('click', function () {
-        game('s');
-    });
+    rock_div.addEventListener('click', ()=> game('r'));
+    paper_div.addEventListener('click', ()=>game('p'));
+    scissors_div.addEventListener('click', () => game('s'));
 }
 main()
